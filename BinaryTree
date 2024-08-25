@@ -1,0 +1,26 @@
+package com.company;
+
+public class BTree {
+    TreeNode root;
+
+    public BTree() {
+        this.root = root;
+    }
+
+    TreeNode RecursiveInsertBinarySearchTree(TreeNode node, int value){
+        if(root==null){
+            this.root=new TreeNode(value);
+        } else {
+            if(node==null){
+                return new TreeNode(value);
+            } else if (node.value<value){
+                node.right=RecursiveInsertBinarySearchTree(node.right,value);
+            } else if  (node.value>value)
+                node.left=RecursiveInsertBinarySearchTree(node.left,value);
+        } return node;
+
+    }
+    public void add(int value){
+        root = RecursiveInsertBinarySearchTree(root,value);
+    }
+}
