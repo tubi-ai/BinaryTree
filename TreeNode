@@ -1,0 +1,16 @@
+package com.company;
+
+public class TreeNode {
+    int TreeNode;
+    TreeNode left;
+    TreeNode right;
+    TreeNode root;
+    int value;
+
+
+    public TreeNode(int value) {
+        this.value= value;
+
+    }
+
+}
