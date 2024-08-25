@@ -1,0 +1,12 @@
+package com.company;
+
+public class node {
+    int data;
+    node left;
+    node right;
+
+    public node(int data) {
+        super();
+        this.data = data;
+    }
+}
