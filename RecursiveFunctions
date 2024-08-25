@@ -1,0 +1,114 @@
+package com.company;
+
+public class BinaryTree {
+    TreeNode root;
+
+    public BinaryTree() {
+        this.root = root;
+    }
+
+    TreeNode RecursiveInsertBinarySearchTree(TreeNode node, int value) {
+        if (root == null) {
+            this.root = new TreeNode(value);
+        } else {
+            if (node == null) {
+                return new TreeNode(value);
+            } else if (node.value < value) {
+                node.right = RecursiveInsertBinarySearchTree(node.right, value);
+            } else if (node.value > value)
+                node.left = RecursiveInsertBinarySearchTree(node.left, value);
+        }
+        return node;
+
+    }
+
+    public void add(int value) {
+
+        RecursiveInsertBinarySearchTree(root, value);
+    }
+
+    public int RecursiveFindMinimum(TreeNode temp) {
+
+        if (root == null) {
+            System.out.println("Tree is empty");
+            return 0;
+        } else {
+            int leftMin, rightMin;
+            int min = temp.value;
+            if (temp.left != null) {
+                leftMin = RecursiveFindMinimum(temp.left);
+
+                min = Math.min(min, leftMin);
+            }
+
+            if (temp.right != null) {
+                rightMin = RecursiveFindMinimum(temp.right);
+
+                min = Math.min(min, rightMin);
+            }
+            return min;
+        }
+    }
+
+    public void FindElement(TreeNode temp, int val) {
+
+        if (root == null) {
+            System.out.println("Tree is empty");
+        } else {
+            if (root.value != val) {
+                if (temp.left != null) {
+                    FindElement(temp.left, val);
+                } else {
+                    if (temp.right != null) {
+                        FindElement(temp.right, val);
+                    }
+                }
+                System.out.println("The node is: "+temp);
+            }
+        }
+    }
+
+    public int RecursiveFindMaximum(TreeNode temp){
+
+        if(root == null) {
+            System.out.println("Tree is empty");
+            return 0;
+        }
+        else {
+            int leftMax, rightMax;
+            int max = temp.value;
+            if(temp.left != null){
+                leftMax = RecursiveFindMaximum(temp.left);
+
+                max = Math.min(max, leftMax);
+            }
+
+            if(temp.right != null){
+                rightMax = RecursiveFindMaximum(temp.right);
+
+                max = Math.min(max, rightMax);
+            }
+            return max;
+        }
+    }
+    public void CountNodes(TreeNode temp) {
+        int count=0;
+        if (root == null) {
+            System.out.println("Tree is empty");
+        } else {
+            count++;
+                if (temp.left != null) {
+                    count++;
+                    CountNodes(temp.left);
+                } else {
+                    if (temp.right != null) {
+                        count++;
+                        CountNodes(temp.right);
+                    }
+                }
+                
+            }
+        }
+    }
+
+}
